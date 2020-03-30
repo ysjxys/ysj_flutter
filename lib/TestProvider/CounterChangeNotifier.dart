@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 
 class CounterChangeNotifier with ChangeNotifier {
@@ -13,7 +12,5 @@ class CounterChangeNotifier with ChangeNotifier {
     _count++;
     notifyListeners();
   }
-
-
 
 }

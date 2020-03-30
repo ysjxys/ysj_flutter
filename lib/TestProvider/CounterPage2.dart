@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'CounterChangeNotifier.dart';
 
 class CounterPage2 extends StatefulWidget {
   @override
@@ -6,8 +8,31 @@ class CounterPage2 extends StatefulWidget {
 }
 
 class _CounterPage2State extends State<CounterPage2> {
+
+
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<CounterChangeNotifier>.value(value: CounterChangeNotifier())
+      ],
+      child: Consumer<CounterChangeNotifier>(builder: (context, counter, _) {
+        return Scaffold(
+          appBar: AppBar(
+            title: Text('page1'),
+          ),
+          body: Center(
+            child: Text('${Provider.of<CounterChangeNotifier>(context).count}'),
+          ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              Provider.of<CounterChangeNotifier>(context, listen: false).add();
+            },
+            child: Icon(Icons.add),
+          ),
+        );
+      }),
+    );
   }
 }
