@@ -14,3 +14,12 @@ class CounterChangeNotifier with ChangeNotifier {
   }
 
 }
+
+
+//class MyNotifier with ChangeNotifier {
+//  MyNotifier() {
+//    _fetchSomething();
+//  }
+//
+//  Future<void> _fetchSomething() async {}
+//}
